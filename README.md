@@ -66,6 +66,9 @@ All figures and tables in the paper are generated from these scripts.
 This repository contains the scripts used to generate the figures
 and tables reported in the paper.
 
+The data used in this study are proprietary (Moody’s) and cannot be publicly shared.
+Please contact the authors for inquiries regarding data access.
+
 ## Citation
 
 If you use this code, please cite:
