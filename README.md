@@ -3,7 +3,7 @@
 Code and data for the paper:
 
 **Shintaro Mori,  
-"Contagion or Macroeconomic Fluctuations? Identifiability in Aggregated Default Data"**  
+[*Contagion or Macroeconomic Fluctuations? Identifiability in Aggregated Default Data*](https://arxiv.org/abs/2604.18118)**  
 arXiv:2604.18118
 
 ## Overview
