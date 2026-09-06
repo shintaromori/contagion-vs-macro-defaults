@@ -1,0 +1,91 @@
+julia/src/Vasicek.jl:3:using StatsFuns: normcdf, norminvcdf
+julia/src/Vasicek.jl:4:using LogExpFunctions: logsumexp
+julia/src/Vasicek.jl:5:using FastGaussQuadrature: gausshermite
+julia/src/Vasicek.jl:6:using ..ProbitNormal: log_comb
+julia/src/Vasicek.jl:8:export vasicek_to_probit_normal, probit_normal_to_vasicek, log_pmf_Vas_1pt, nll_vasicek
+julia/src/Vasicek.jl:17:function vasicek_to_probit_normal(p0::Float64, rho_A::Float64)::Tuple{Float64, Float64}
+julia/src/Vasicek.jl:34:function probit_normal_to_vasicek(mu::Float64, sigma::Float64)::Tuple{Float64, Float64}
+julia/src/Vasicek.jl:49:function log_pmf_Vas_1pt(n::Int, h::Int, p::Float64, rho_A::Float64; GH_N::Int=100)::Float64
+julia/src/Vasicek.jl:85:function nll_vasicek(p0::Float64, rho_A::Float64, n_arr::Vector{Int}, h_arr::Vector{Int}, c_arr::Vector{Int}; GH_N::Int=100)::Float64
+julia/src/GaussianMixture.jl:3:using StatsFuns: normcdf
+julia/src/GaussianMixture.jl:4:using LogExpFunctions: logsumexp, logaddexp, softplus, logistic, logit
+julia/src/GaussianMixture.jl:5:using ..Quadrature: get_hermite_quadrature
+julia/src/GaussianMixture.jl:6:using ..ProbitNormal: log_comb
+julia/src/GaussianMixture.jl:8:export nll_probit_normal_mixture_physical, unconstrained_to_mixture_params, nll_probit_normal_mixture_unconstrained
+julia/src/GaussianMixture.jl:9:export inv_softplus, mixture_to_unconstrained_params
+julia/src/GaussianMixture.jl:18:function inv_softplus(y::Float64)::Float64
+julia/src/GaussianMixture.jl:36:function nll_probit_normal_mixture_physical(mu1::Float64, mu2::Float64, sigma1::Float64, sigma2::Float64, pi_val::Float64, n_arr::Vector{Int}, h_arr::Vector{Int}, c_arr::Vector{Int}; GH_N::Int=100)::Float64
+julia/src/GaussianMixture.jl:94:function unconstrained_to_mixture_params(params::Vector{Float64})::Tuple{Float64, Float64, Float64, Float64, Float64}
+julia/src/GaussianMixture.jl:110:function mixture_to_unconstrained_params(mu1::Float64, mu2::Float64, sigma1::Float64, sigma2::Float64, pi_val::Float64)::Vector{Float64}
+julia/src/GaussianMixture.jl:127:function nll_probit_normal_mixture_unconstrained(params::Vector{Float64}, n_arr::Vector{Int}, h_arr::Vector{Int}, c_arr::Vector{Int}; GH_N::Int=100)::Float64
+julia/src/Quadrature.jl:3:using FastGaussQuadrature
+julia/src/Quadrature.jl:5:export get_hermite_quadrature
+julia/src/Quadrature.jl:16:function get_hermite_quadrature(GH_N::Int)
+julia/src/IDMLikelihoods.jl:3:include("Quadrature.jl")
+julia/src/IDMLikelihoods.jl:4:include("ProbitNormal.jl")
+julia/src/IDMLikelihoods.jl:5:include("Vasicek.jl")
+julia/src/IDMLikelihoods.jl:6:include("GaussianMixture.jl")
+julia/src/IDMLikelihoods.jl:8:using .Quadrature
+julia/src/IDMLikelihoods.jl:9:using .ProbitNormal
+julia/src/IDMLikelihoods.jl:10:using .Vasicek
+julia/src/IDMLikelihoods.jl:11:using .GaussianMixture
+julia/src/IDMLikelihoods.jl:13:export get_hermite_quadrature
+julia/src/IDMLikelihoods.jl:14:export log_comb, nll_probit_normal, nll_probit_normal_unconstrained
+julia/src/IDMLikelihoods.jl:15:export vasicek_to_probit_normal, probit_normal_to_vasicek, log_pmf_Vas_1pt, nll_vasicek
+julia/src/IDMLikelihoods.jl:16:export nll_probit_normal_mixture_physical, unconstrained_to_mixture_params, mixture_to_unconstrained_params, inv_softplus, nll_probit_normal_mixture_unconstrained
+julia/src/ProbitNormal.jl:3:using StatsFuns: normcdf, loggamma
+julia/src/ProbitNormal.jl:4:using LogExpFunctions: logsumexp
+julia/src/ProbitNormal.jl:5:using ..Quadrature: get_hermite_quadrature
+julia/src/ProbitNormal.jl:7:export log_comb, nll_probit_normal, nll_probit_normal_unconstrained
+julia/src/ProbitNormal.jl:14:function log_comb(n::Int, h::Int)::Float64
+julia/src/ProbitNormal.jl:26:function nll_probit_normal(mu::Float64, sigma::Float64, n_arr::Vector{Int}, h_arr::Vector{Int}, c_arr::Vector{Int}; GH_N::Int=100)::Float64
+julia/src/ProbitNormal.jl:75:function nll_probit_normal_unconstrained(params::Vector{Float64}, n_arr::Vector{Int}, h_arr::Vector{Int}, c_arr::Vector{Int}; GH_N::Int=100)::Float64
+julia/scripts/validate_fixed_parameters.jl:1:using Pkg
+julia/scripts/validate_fixed_parameters.jl:4:include(joinpath(@__DIR__, "..", "src", "IDMLikelihoods.jl"))
+julia/scripts/validate_fixed_parameters.jl:5:using .IDMLikelihoods
+julia/scripts/validate_fixed_parameters.jl:7:using CSV
+julia/scripts/validate_fixed_parameters.jl:8:using DataFrames
+julia/scripts/validate_fixed_parameters.jl:9:using Test
+julia/scripts/validate_fixed_parameters.jl:11:function group_nh(n_series::Vector{Int}, h_series::Vector{Int})
+julia/scripts/validate_fixed_parameters.jl:27:function run_fixed_parameter_validation()
+julia/scripts/validate_mixture_fixed_parameters.jl:1:using Pkg
+julia/scripts/validate_mixture_fixed_parameters.jl:4:include(joinpath(@__DIR__, "..", "src", "IDMLikelihoods.jl"))
+julia/scripts/validate_mixture_fixed_parameters.jl:5:using .IDMLikelihoods
+julia/scripts/validate_mixture_fixed_parameters.jl:7:using CSV
+julia/scripts/validate_mixture_fixed_parameters.jl:8:using DataFrames
+julia/scripts/validate_mixture_fixed_parameters.jl:9:using Test
+julia/scripts/validate_mixture_fixed_parameters.jl:11:function group_nh(n_series::Vector{Int}, h_series::Vector{Int})
+julia/scripts/validate_mixture_fixed_parameters.jl:27:function run_mixture_fixed_parameter_validation()
+julia/scripts/fit_m0_mle.jl:1:using Pkg
+julia/scripts/fit_m0_mle.jl:4:include(joinpath(@__DIR__, "..", "src", "IDMLikelihoods.jl"))
+julia/scripts/fit_m0_mle.jl:5:using .IDMLikelihoods
+julia/scripts/fit_m0_mle.jl:7:using CSV
+julia/scripts/fit_m0_mle.jl:8:using DataFrames
+julia/scripts/fit_m0_mle.jl:9:using Dates
+julia/scripts/fit_m0_mle.jl:10:using Optim
+julia/scripts/fit_m0_mle.jl:11:using StatsFuns: norminvcdf
+julia/scripts/fit_m0_mle.jl:13:function group_nh(n_series::Vector{Int}, h_series::Vector{Int})
+julia/scripts/fit_m0_mle.jl:29:function fit_m0_all_classes()
+julia/scripts/fit_mixture.jl:1:using Pkg
+julia/scripts/fit_mixture.jl:4:include(joinpath(@__DIR__, "..", "src", "IDMLikelihoods.jl"))
+julia/scripts/fit_mixture.jl:5:using .IDMLikelihoods
+julia/scripts/fit_mixture.jl:7:using CSV
+julia/scripts/fit_mixture.jl:8:using DataFrames
+julia/scripts/fit_mixture.jl:9:using Dates
+julia/scripts/fit_mixture.jl:10:using Optim
+julia/scripts/fit_mixture.jl:11:using StatsFuns: norminvcdf
+julia/scripts/fit_mixture.jl:13:function group_nh(n_series::Vector{Int}, h_series::Vector{Int})
+julia/scripts/fit_mixture.jl:29:function compute_aic_bic(nll::Float64, k::Int, T::Int)
+julia/scripts/fit_mixture.jl:36:function run_full_phase_j2_reproduction()
+julia/test/runtests.jl:1:using Test
+julia/test/runtests.jl:2:using CSV
+julia/test/runtests.jl:3:using DataFrames
+julia/test/runtests.jl:4:using StatsFuns: normcdf, norminvcdf
+julia/test/runtests.jl:6:include(joinpath(@__DIR__, "..", "src", "IDMLikelihoods.jl"))
+julia/test/runtests.jl:7:using .IDMLikelihoods
+julia/test/runtests.jl:9:function group_nh(n_series::Vector{Int}, h_series::Vector{Int})
+julia/test/runtests.jl:111:    include("test_gaussian_mixture.jl")
+julia/test/test_gaussian_mixture.jl:1:using Test
+julia/test/test_gaussian_mixture.jl:2:using CSV
+julia/test/test_gaussian_mixture.jl:3:using DataFrames
+julia/test/test_gaussian_mixture.jl:4:using StatsFuns: normcdf

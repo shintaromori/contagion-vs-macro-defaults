@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment / credentials
+.env
+.env.*
+
+# Proprietary Moody's data
+data/M_1920_2023.csv
+
+# Real-data-derived intermediate outputs
+# Excluded until every file is classified for public release.
+pdata/
+
+# Temporary / backup files
+*.tmp
+*.bak
+*~

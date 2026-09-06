@@ -1,0 +1,22 @@
+name = "julia"
+uuid = "e35ddc65-a672-4333-bcfe-82c1dce78f99"
+version = "0.1.0"
+authors = ["Shintaro Mori <shintaro.mori@gmail.com>"]
+
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+FastGaussQuadrature = "442a2c76-b920-505d-bb47-c5924d526838"
+LogExpFunctions = "2ab3a3ac-af41-5b50-aa03-7779005ae688"
+Optim = "429524aa-4258-5aef-a3af-852621145aeb"
+StatsFuns = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+CSV = "0.10.17"
+DataFrames = "1.8.2"
+FastGaussQuadrature = "1.3.0"
+LogExpFunctions = "1.0.1"
+Optim = "2.2.2"
+StatsFuns = "2.2.1"
+Test = "1.11.0"

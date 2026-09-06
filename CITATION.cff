@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated paper."
+title: "Code for Identifiability of Contagion Components amid Environmental Fluctuations in Aggregated Default Counts"
+type: software
+authors:
+  - family-names: Mori
+    given-names: Shintaro
+repository-code: "https://github.com/shintaromori/contagion-vs-macro-defaults"
+
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Mori
+      given-names: Shintaro
+  title: "Identifiability of Contagion Components amid Environmental Fluctuations in Aggregated Default Counts"
+  year: 2026
+  doi: "10.48550/arXiv.2604.18118"
+  url: "https://arxiv.org/abs/2604.18118"

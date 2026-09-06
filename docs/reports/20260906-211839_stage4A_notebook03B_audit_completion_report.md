@@ -1,0 +1,22 @@
+# Stage 4A Completion Report: Notebook 03B Audit
+
+- **Stage**: 4A
+- **Date/Time**: 2026-09-06T21:18:39+09:00
+- **Branch**: code-publication-refactor
+- **Starting commit**: e6edd702823f1a6ff110b917070a8dd157daf03d
+- **Environment preflight**: PASS. Verified canonical environment `idms-jpsj`, python `3.11.16`.
+- **03B function count**: 36
+- **EXACT-AST count**: 20 (with modules)
+- **Import-safe count**: 19
+- **Retain-inline count**: 17
+- **revision_models comparison**: 0 exact matches. 03B's M0/M1/M2 functions differ entirely from `revision_models.py` definitions (e.g. `nll_probit_normal` vs `neg_ll_pn_Torri`).
+- **make_grouped_nh result**: 03B groups and sorts by frequency descending (`tmp.value_counts()`), and returns strict integer representations for count arrays.
+- **M0/M1/M2 dependency graph summary**:
+  - M0: `fit_pn_null_from_grouped` -> `neg_ll_pn_null` -> `gh_normal_weights`, `norm.cdf`, `binom.logpmf`
+  - M1/M2 Torri: `fit_one_pn_Torri` -> `make_grouped_nh`, `neg_ll_pn_Torri` -> `log_pmf_pn_Torri_1pt` -> `log_pmf_Torri` -> `logsumexp`, `logsubexp`, `log_comb`
+  - M1/M2 LD: `fit_one_pn_LD` -> `make_grouped_nh`, `neg_ll_pn_LD` -> `log_pmf_pn_LD_1pt` -> `logsumexp_vec`, `log_comb`
+- **Output/write inventory**: Uses `to_csv`, `savefig`, and `pdata` writes in cells 15, 19, 20, 23, 24, 25, 27.
+- **Data-mode audit**: EXPLICIT fallback. Prompts with warning if reverting to SYNTHETIC. No silent fallback present.
+- **Recommended Stage 4B migration**: 19 functions, to be split into 4B1 (low-risk utilities) and 4B2 (model-level globals).
+- **Audit document path**: `docs/audits/20260906_stage4A_notebook03B_dependency_and_import_safety_audit.md`
+- **PASS / STOP status**: PASS. Ready for Stage 4B1.

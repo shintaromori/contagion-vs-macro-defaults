@@ -1,0 +1,67 @@
+Stage 2 exact-match gate: 02_numerical_experiments.ipynb
+==============================================================================
+
+b_of_s
+  module definitions : []
+  notebook definitions: []
+  RESULT: FAIL -- module definition is not unique
+
+bisect_root
+  module definitions : []
+  notebook definitions: []
+  RESULT: FAIL -- module definition is not unique
+
+default_corr_from_asset_corr
+  module definitions : [(476, '5cd79df633f3')]
+  notebook definitions: [(9, 6, '5cd79df633f3')]
+  RESULT: EXACT-AST PASS
+
+es_from_pmf
+  module definitions : [(69, '5443d6715fe4')]
+  notebook definitions: [(3, 47, '5443d6715fe4')]
+  RESULT: EXACT-AST PASS
+
+find_params_on_iso_Torri
+  module definitions : [(215, '841d0968cd5f')]
+  notebook definitions: [(5, 66, '841d0968cd5f')]
+  RESULT: EXACT-AST PASS
+
+invert_asset_corr_from_default_corr
+  module definitions : [(484, '61c6b7357dd7')]
+  notebook definitions: [(9, 11, '61c6b7357dd7')]
+  RESULT: EXACT-AST PASS
+
+m_rho_from_pmf
+  module definitions : [(95, 'e1da8d9f937d')]
+  notebook definitions: [(3, 67, 'e1da8d9f937d')]
+  RESULT: EXACT-AST PASS
+
+moments_from_pmf
+  module definitions : [(86, '6906fca1c8ff')]
+  notebook definitions: [(3, 61, '6906fca1c8ff')]
+  RESULT: EXACT-AST PASS
+
+pmf_Torri
+  module definitions : [(144, '24c873fe3d19')]
+  notebook definitions: [(5, 1, '24c873fe3d19')]
+  RESULT: EXACT-AST PASS
+
+pmf_Vas
+  module definitions : [(499, '1a6eada52208')]
+  notebook definitions: [(9, 23, '1a6eada52208')]
+  RESULT: EXACT-AST PASS
+
+tail_metrics_from_pmf
+  module definitions : [(131, '235e16bdbd2c')]
+  notebook definitions: [(3, 97, '235e16bdbd2c')]
+  RESULT: EXACT-AST PASS
+
+var_from_pmf
+  module definitions : [(61, '3352370f3cca')]
+  notebook definitions: [(3, 42, '3352370f3cca')]
+  RESULT: EXACT-AST PASS
+
+==============================================================================
+STAGE 2 EXACT GATE: FAIL
+
+Note: The FAIL status for exact-match gate on b_of_s and bisect_root is a false FAIL because they are nested functions within find_params_on_iso_Torri, not top-level definitions, so they are not detected by tree.body based inspection. There is no scientific mismatch.

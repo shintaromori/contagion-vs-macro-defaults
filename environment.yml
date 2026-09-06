@@ -1,0 +1,10 @@
+name: idms-jpsj
+channels:
+  - conda-forge
+dependencies:
+  - ipykernel
+  - scipy
+  - numpy
+  - matplotlib
+  - pandas
+  - python=3.11
